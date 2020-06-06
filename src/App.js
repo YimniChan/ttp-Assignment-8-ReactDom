@@ -47,6 +47,9 @@ class App extends Component {
     }
   };
 
+  
+
+
   render() {
     return (
       <>
@@ -57,7 +60,7 @@ class App extends Component {
               Add Row
             </button>
             <button value="addC" onClick={this.handleAddEvent}>
-              Add Cell
+              Add Column
             </button>
             <button value="remR" onClick={this.handleRemEvent}>
               Remove Row
@@ -66,7 +69,19 @@ class App extends Component {
               Remove Column
             </button>
           </div>
+          <div>
+            <p>Select a cell color: 
+              <select id = "color-select"  onchange="selectedColor(this.value)">
+                <option value="" selected disabled hidden>Select Color:</option>
+                <option value="#CCCCFF">Lavender Blue</option>
+                <option value="#FFCCD9">Pink Lace </option>
+                <option value="#CCFFCC">Snowy Mint</option>
+                <option value="#CCF2FF">Pattens Blue</option>
+              </select>
+            </p>
+          </div>
         </div>
+
         <Table row={this.state.row} column={this.state.column} />
       </>
     );

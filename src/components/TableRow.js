@@ -5,8 +5,7 @@ import Table from "./Table";
 class TableRow extends Component {
   render() {
     let tableCells = []; // pushing the columns
-    for (let i = 1; i < this.props.column; i++) {
-      // starts at 1
+    for (let i = 0; i < this.props.column; i++) {
       tableCells.push(<TableCell />);
     }
     return <tr>{tableCells}</tr>;
