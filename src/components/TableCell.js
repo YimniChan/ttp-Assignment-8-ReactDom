@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 
 class TableCell extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             color:this.props.color,
         };
-        this.handleColor = this.handleColor.bind(this);
+        //this.handleColor = this.handleColor.bind(this);
     }
 
     componentDidUpdate() {
@@ -23,5 +24,6 @@ class TableCell extends Component {
         )
     }
 }
-//<td value={this.state.color} style={{ backgroundColor: this.state.color}} onClick={this.handleColor}></td>
+
 export default TableCell;
+
