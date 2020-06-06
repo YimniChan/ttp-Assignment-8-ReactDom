@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class TableCell extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -24,3 +25,4 @@ class TableCell extends Component {
 }
 
 export default TableCell;
+
