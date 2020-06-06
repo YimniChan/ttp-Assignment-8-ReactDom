@@ -1,34 +1,40 @@
 import React, { Component } from "react";
 
-import TableRow from "./TableRow"
-
+import TableRow from "./TableRow";
 
 class Table extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            //color:"",
-            row:this.props.row,
-            column:this.props.row
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      //color:"",
+      row: this.props.row,
+      column: this.props.row
+    };
+    // this.handleAddEvent = this.handleAddEvent.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (
+      // if the props and state are different, update the state
+      this.props.column != this.state.column ||
+      this.props.row != this.state.row
+    ) {
+      this.setState({ row: this.props.row, column: this.props.column });
     }
-    // addRow=(row)=>{
-    //     let newRow = document.createElement("tr");
+  }
 
-    // }
+  render() {
+    let tableRows = [];
+    for (let i = 0; i < this.state.row; i++) {
+      tableRows.push(<TableRow column={this.state.column} />);
+    } // this for loop is for pushing all of the rows into an array, so I can render it.
+    return (
+      <table>
+        <tbody>{tableRows}</tbody>
+      </table>
+    );
+  }
 
-
-    render(){
-        return(
-        <table id="table">
-            <TableRow  />
-            <TableRow  />
-        </table>
-        )
-    }
-
-
-   ///inside have TableCell.js
-
+  // <table id="table"></table>
 }
 export default Table;
