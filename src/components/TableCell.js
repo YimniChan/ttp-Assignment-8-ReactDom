@@ -6,21 +6,22 @@ class TableCell extends Component {
         this.state = {
             color:this.props.color,
         };
-        //this.handleColor = this.handleColor.bind(this);
+        this.handleColor = this.handleColor.bind(this);
     }
 
-    handleColor=()=> {
-        if (this.props.color != this.state.color ) {
+    componentDidUpdate() {
+        if (
+          this.props.color != this.state.color 
+        ) {
           this.setState({ color: this.props.color});
         }
-    }
+      }
 
     render() {
         return(
-        <td style={{ backgroundColor: this.state.color}} 
-        onClick={this.handleColor}></td>
+        <td value={this.state.color} style={{ backgroundColor: this.state.color}} onClick={this.componentDidUpdate}></td>
         )
     }
 }
-
+//<td value={this.state.color} style={{ backgroundColor: this.state.color}} onClick={this.handleColor}></td>
 export default TableCell;
