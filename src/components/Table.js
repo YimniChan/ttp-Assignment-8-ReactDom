@@ -11,11 +11,24 @@ class Table extends Component {
             row:this.props.row,
             column:this.props.row
         }
-        this.handleAddEvent = this.handleAddEvent.bind(this);
-      }
+    }
+    // addRow=(row)=>{
+    //     let newRow = document.createElement("tr");
+
+    // }
 
 
-   // <table id="table"></table>
+    render(){
+        return(
+        <table id="table">
+            <TableRow  />
+            <TableRow  />
+        </table>
+        )
+    }
+
+
+   ///inside have TableCell.js
 
 }
 export default Table;

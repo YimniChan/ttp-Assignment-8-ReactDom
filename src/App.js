@@ -18,13 +18,15 @@ class App extends Component {
     if(e.target.value === "addR"){
       this.setState({
       row: this.state.row+1
+      
     })
     }
-    else {
-      this.setState({
-    column: this.state.column+1
-    })
-    }
+    // else {
+    //   this.setState({
+    //   column: this.state.column+1
+
+    // })
+    // }
     // this.setState({
     //   [e.target.value]: this.state.
     // })
