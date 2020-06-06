@@ -10,7 +10,6 @@ class Table extends Component {
       row: this.props.row,
       column: this.props.row
     };
-    // this.handleAddEvent = this.handleAddEvent.bind(this);
   }
 
   componentDidUpdate() {
