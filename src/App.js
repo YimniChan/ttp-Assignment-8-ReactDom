@@ -6,12 +6,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //color:"",
+      color:"#FFFFFF",
       row: 1,
       column: 1
     };
     this.handleAddEvent = this.handleAddEvent.bind(this);
     this.handleRemEvent = this.handleRemEvent.bind(this);
+    this.selectedColor = this.selectedColor.bind(this);
   }
 
   handleAddEvent = e => {
@@ -29,7 +30,6 @@ class App extends Component {
   handleRemEvent = e => {
     if (e.target.value === "remR") {
       if (this.state.row > 1) {
-        // checks if number is negative
         this.setState({
           row: this.state.row - 1
         });
@@ -47,9 +47,13 @@ class App extends Component {
     }
   };
 
+  selectedColor = (color) =>{
+    this.setState({
+      color: color.target.value
+    });
+    console.log("App event handler " + this.state.color)
+  }
   
-
-
   render() {
     return (
       <>
@@ -71,7 +75,7 @@ class App extends Component {
           </div>
           <div>
             <p>Select a cell color: 
-              <select id = "color-select"  onchange="selectedColor(this.value)">
+              <select id = "color-select"  onChange={this.selectedColor}>
                 <option value="" selected disabled hidden>Select Color:</option>
                 <option value="#CCCCFF">Lavender Blue</option>
                 <option value="#FFCCD9">Pink Lace </option>
@@ -81,8 +85,7 @@ class App extends Component {
             </p>
           </div>
         </div>
-
-        <Table row={this.state.row} column={this.state.column} />
+        <Table row={this.state.row} column={this.state.column} color={this.state.color}/>
       </>
     );
   }
